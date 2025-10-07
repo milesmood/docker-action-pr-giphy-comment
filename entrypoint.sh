@@ -19,5 +19,4 @@ comment_response=$(curl -L \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: Bearer $GITHUB_TOKEN" \
   https://api.github.com/repos/$GITHUB_REPOSITORY/issues/$pull_request_number/comments \
-  -d '{"body": "### PR - #$pull_request_number. \n ### Thank you for this contribution! \n ![GIF]($gif_url) "}' \
-  )
+  -d '{"body": "### PR - #$pull_request_number. \n ### Thank you for this contribution! \n ![GIF]($gif_url) "}')
