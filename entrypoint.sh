@@ -9,10 +9,10 @@ echo "GITHUB_EVENT_PATH - $GITHUB_EVENT_PATH"
 
 echo $GIPHY_API_KEY
 
-giphy_response=$(curl -s "https://api.giphy.com/v1/gifs/random?api_key=$GIPHY_API_KEY&tag=&rating=g")
+giphy_response=$(curl -s https://api.giphy.com/v1/gifs/random?api_key=$GIPHY_API_KEY&tag=&rating=g)
 echo "Giphy Response - $giphy_response"
 
-gif_url=$(echo "$giphy_response" | jq --raw-output .data.images.downsized.url)
+gif_url=$(echo "$giphy_response" | jq --raw-output .data.images.original.url)
 echo "gif_url - $gif_url"
 
 # Create a comment with the GIF on the PR
