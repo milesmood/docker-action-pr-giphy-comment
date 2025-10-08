@@ -2,6 +2,8 @@ on:
     pull_request:
         types:
             - opened
+            - synchronize
+            - reopened
 jobs:
     testing-action:
         runs-on: ubuntu-latest
@@ -15,5 +17,5 @@ jobs:
         - name: Post PR Comment
           uses: ./
           with:
-            github-token: $ {{ secrets.GITHUB_TOKEN }} # по умолчанию только права на чтение, поэтому выдаем права наверху
-            giphy-api-key: $ {{ secrets.GIPHY_API_KEY }}
+            github-token: ${{secrets.GITHUB_TOKEN}} # по умолчанию только права на чтение, поэтому выдаем права наверху
+            giphy-api-key: ${{secrets.GIPHY_API_KEY}}

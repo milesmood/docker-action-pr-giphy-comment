@@ -12,13 +12,13 @@ echo $GIPHY_API_KEY
 giphy_response=$(curl -s https://api.giphy.com/v1/gifs/random?api_key=$GIPHY_API_KEY&tag=&rating=g)
 echo "Giphy Response - $giphy_response"
 
-gif_url=$(echo "$giphy_response" | jq --raw-output .data.images.original.url)
+gif_url=$(echo "$giphy_response" | jq --raw-output .data.images.downsized.url)
 echo "gif_url - $gif_url"
-
+echo "link https://api.giphy.com/v1/gifs/random?api_key=$GIPHY_API_KEY&tag=&rating=g"
 # Create a comment with the GIF on the PR
 comment_response=$(curl -L \
   -X POST \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: Bearer $GITHUB_TOKEN" \
-  https://api.github.com/repos/$GITHUB_REPOSITORY/issues/$pull_request_number/comments \
-  -d "{\"body\": \"### PR - #$pull_request_number.\n### Thank you for this contribution!\n![GIF]($gif_url)\"}")
+  -d "{\"body\": \"### PR - #$pull_request_number.\n### Thank you for this contribution!\n ![GIF]($gif_url) \"}" \
+  https://api.github.com/repos/$GITHUB_REPOSITORY/issues/$pull_request_number/comments )

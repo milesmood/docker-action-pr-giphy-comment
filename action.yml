@@ -1,5 +1,5 @@
 # action.yml
-name: 'Giphy PR Comment'
+name: 'GIF PR Comment milesmoood'
 description: 'Add a Giphy GIF comment to new pull requests.'
 inputs:
   github-token:  # id of input
@@ -14,3 +14,6 @@ runs:
   args:
     - ${{ inputs.github-token }}
     - ${{ inputs.giphy-api-key }}
+branding:
+  icon: 'zap' # Choose an Octicon icon name
+  color: 'Purple' # Choose a color name or hex code
