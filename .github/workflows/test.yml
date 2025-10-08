@@ -18,4 +18,4 @@ jobs:
           uses: ./
           with:
             github-token: ${{secrets.GITHUB_TOKEN}} # по умолчанию только права на чтение, поэтому выдаем права наверху
-            giphy-api-key: ${{vars.GIPHY_API_KEY}}
+            giphy-api-key: ${{secrets.GIPHY_API_KEY}}
