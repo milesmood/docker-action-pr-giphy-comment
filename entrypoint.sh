@@ -14,7 +14,7 @@ echo "Giphy Response - $giphy_response"
 
 gif_url=$(echo "$giphy_response" | jq --raw-output .data.images.original.url)
 echo "gif_url - $gif_url"
-echo "link https://api.github.com/repos/$GITHUB_REPOSITORY/issues/$pull_request_number/comments"
+echo "link https://api.giphy.com/v1/gifs/random?api_key=$GIPHY_API_KEY&tag=&rating=g"
 # Create a comment with the GIF on the PR
 comment_response=$(curl -L \
   -X POST \
